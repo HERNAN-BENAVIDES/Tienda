@@ -8,15 +8,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventanas.VentanaVentas">
    <children>
-      <ScrollPane prefHeight="500.0" prefWidth="460.0">
+      <ScrollPane layoutY="104.0" prefHeight="396.0" prefWidth="460.0">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="455.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="399.0" prefWidth="459.0">
                <children>
-                  <TableView prefHeight="500.0" prefWidth="452.0">
+                  <TableView prefHeight="396.0" prefWidth="460.0">
                      <columns>
                         <TableColumn prefWidth="75.0" text="Nombre" />
                         <TableColumn prefWidth="75.0" text="Código" />
@@ -30,40 +30,55 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <TextField layoutX="491.0" layoutY="33.0" prefHeight="45.0" prefWidth="271.0" promptText="Nombre">
+      <TextField editable="false" layoutX="491.0" layoutY="143.0" prefHeight="45.0" prefWidth="271.0" promptText="Nombre">
          <font>
             <Font name="Bookman Old Style" size="24.0" />
          </font>
       </TextField>
-      <TextField layoutX="491.0" layoutY="103.0" prefHeight="45.0" prefWidth="271.0" promptText="Código">
+      <TextField editable="false" layoutX="491.0" layoutY="201.0" prefHeight="45.0" prefWidth="271.0" promptText="Código">
          <font>
             <Font name="Bookman Old Style" size="24.0" />
          </font>
       </TextField>
-      <TextField layoutX="491.0" layoutY="173.0" prefHeight="45.0" prefWidth="271.0" promptText="Precio">
+      <TextField editable="false" layoutX="491.0" layoutY="258.0" prefHeight="45.0" prefWidth="271.0" promptText="Precio">
          <font>
             <Font name="Bookman Old Style" size="24.0" />
          </font>
       </TextField>
-      <TextField alignment="CENTER" editable="false" layoutX="527.0" layoutY="260.0" prefHeight="70.0" prefWidth="200.0" text="0">
+      <TextField alignment="CENTER" editable="false" layoutX="527.0" layoutY="310.0" prefHeight="70.0" prefWidth="200.0" text="0">
          <font>
             <Font name="Bookman Old Style" size="37.0" />
          </font>
       </TextField>
-      <ImageView fitHeight="103.0" fitWidth="98.0" layoutX="578.0" layoutY="352.0">
+      <ImageView fitHeight="103.0" fitWidth="98.0" layoutX="578.0" layoutY="383.0">
          <image>
             <Image url="@../recursos/Carrito.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="486.0" layoutY="257.0">
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="486.0" layoutY="307.0">
          <image>
             <Image url="@../recursos/Menos.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="686.0" layoutY="257.0">
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="686.0" layoutY="307.0">
          <image>
             <Image url="@../recursos/Crear.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="btnBuscar" fitHeight="75.0" fitWidth="75.0" layoutX="74.0" layoutY="14.0" onMouseClicked="#onBuscarCliente">
+         <image>
+            <Image url="@../recursos/Lupa.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtBuscar" layoutX="177.0" layoutY="27.0" prefHeight="50.0" prefWidth="550.0" promptText="Nombre del producto">
+         <font>
+            <Font name="Bookman Old Style" size="24.0" />
+         </font>
+      </TextField>
+      <Text layoutX="592.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Venta">
+         <font>
+            <Font name="Bookman Old Style" size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
