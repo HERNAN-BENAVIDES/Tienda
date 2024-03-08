@@ -12,9 +12,9 @@ public class TiendaUtils {
     public static Tienda inicializarDatos(){
         Tienda tienda = new Tienda();
 
-        Producto p1 = new Producto("1111", "Arroz", 5000, 50);
-        Producto p2 = new Producto("2222", "Azucar", 4500, 30);
-        Producto p3 = new Producto("1234", "Sal", 4500, 51);
+        Producto p1 = new Producto("Arroz", "1111", 5000, 50);
+        Producto p2 = new Producto("Azucar", "1234", 4500, 30);
+        Producto p3 = new Producto("Sal", "1212", 4500, 51);
 
         try {
             tienda.agregarProducto(p1);

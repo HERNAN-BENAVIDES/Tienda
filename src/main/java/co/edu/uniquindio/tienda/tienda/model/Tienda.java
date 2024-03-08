@@ -70,6 +70,15 @@ public class Tienda implements ITienda {
         return producto;
     }
 
+    @Override
+    public boolean editarProducto(Producto producto, Producto productoSeleccionado) throws ProductoException {
+        if(listProductos.replace(productoSeleccionado.getCodigo(), productoSeleccionado, producto)){
+            return true;
+        }else {
+            throw new ProductoException("Error al actualizar el  cliente");
+        }
+    }
+
 
 
     /*

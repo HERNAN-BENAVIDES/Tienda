@@ -14,9 +14,8 @@ public class TiendaApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TiendaApplication.class.getResource("ventanas/VentanaClientes.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TiendaApplication.class.getResource("ventanas/VentanaProductos.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Subasta UQ");
         stage.setScene(scene);
         stage.show();
     }
