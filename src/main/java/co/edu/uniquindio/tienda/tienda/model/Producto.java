@@ -11,10 +11,13 @@ import lombok.NoArgsConstructor;
 @SuppressWarnings("ALL")
 public class Producto implements Comparable<Producto> {
 
-    private String codigo;
     private String nombre;
+    private String codigo;
     private double precio;
     private int cantidadInventario;
+
+
+
     @Override
     public int compareTo(Producto o) {
         return Integer.compare(getCantidadInventario(), o.getCantidadInventario());

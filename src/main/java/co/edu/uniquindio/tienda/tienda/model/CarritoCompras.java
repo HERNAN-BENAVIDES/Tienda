@@ -12,6 +12,7 @@ import java.util.Random;
 @Data
 @AllArgsConstructor
 @SuppressWarnings("ALL")
+//"Besos"
 public class CarritoCompras {
 
     public String codigo;

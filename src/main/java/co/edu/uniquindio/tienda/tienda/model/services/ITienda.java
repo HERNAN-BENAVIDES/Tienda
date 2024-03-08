@@ -37,4 +37,6 @@ public interface ITienda {
     public TreeSet<Producto> obtenerProductosConInventarioBajo();
 
     boolean editarCliente(Cliente cliente, Cliente clienteSeleccionado) throws ClienteException;
+
+    boolean editarProducto(Producto producto, Producto productoSeleccionado) throws ProductoException;
 }
