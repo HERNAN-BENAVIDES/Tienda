@@ -1,5 +1,6 @@
 package co.edu.uniquindio.tienda.tienda.viewController;
 
+import co.edu.uniquindio.tienda.tienda.TiendaApplication;
 import co.edu.uniquindio.tienda.tienda.controller.ModelFactoryController;
 import co.edu.uniquindio.tienda.tienda.exception.ProductoException;
 import co.edu.uniquindio.tienda.tienda.exception.ProductoNoEncontradoException;
@@ -9,13 +10,19 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import lombok.Data;
 
-public class VentanaProductosController {
+import java.net.URL;
+import java.util.ResourceBundle;
+@Data
+public class VentanaProductosController implements Initializable {
 
     @FXML
     private ImageView btnBuscar;
@@ -58,6 +65,9 @@ public class VentanaProductosController {
 
     @FXML
     private TextField txtCantidad;
+
+    private Stage ventana;
+    private TiendaApplication aplicacion;
 
 
     ObservableList<Producto> listProductos = FXCollections.observableArrayList();
@@ -232,5 +242,9 @@ public class VentanaProductosController {
         return nombre.isEmpty() || codigo.isEmpty() || precio.isEmpty();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
 

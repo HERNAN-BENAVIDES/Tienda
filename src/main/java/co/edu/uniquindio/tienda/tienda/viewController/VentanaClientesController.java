@@ -1,5 +1,6 @@
 package co.edu.uniquindio.tienda.tienda.viewController;
 
+import co.edu.uniquindio.tienda.tienda.TiendaApplication;
 import co.edu.uniquindio.tienda.tienda.controller.ModelFactoryController;
 import co.edu.uniquindio.tienda.tienda.exception.ClienteException;
 import co.edu.uniquindio.tienda.tienda.exception.ClienteNoEncontradoException;
@@ -9,13 +10,19 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import lombok.Data;
 
-public class VentanaClientesController {
+import java.net.URL;
+import java.util.ResourceBundle;
+@Data
+public class VentanaClientesController implements Initializable {
 
     ObservableList<Cliente> listaClientes = FXCollections.observableArrayList();
     Cliente clienteSeleccionado;
@@ -56,6 +63,9 @@ public class VentanaClientesController {
 
     @FXML
     private TextField txtNombre;
+    private Stage ventana;
+    private TiendaApplication aplicacion;
+
 
     public VentanaClientesController() {
         modelFactoryController = ModelFactoryController.getInstance();
@@ -228,5 +238,10 @@ public class VentanaClientesController {
         } catch (ClienteNoEncontradoException e) {
             Alertas.mostrarAlertaError(e.getMessage());
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

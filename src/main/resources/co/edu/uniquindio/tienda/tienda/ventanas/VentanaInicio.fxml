@@ -3,6 +3,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventanas.VentanaInicio">
-
+<AnchorPane fx:id="panelPrincipal" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.tienda.tienda.viewController.VentanaInicioController">
+   <children>
+      <AnchorPane fx:id="barraOpciones" prefHeight="500.0" prefWidth="200.0" />
+      <AnchorPane fx:id="panelDerecho" layoutX="200.0" prefHeight="500.0" prefWidth="800.0" />
+   </children>
 </AnchorPane>

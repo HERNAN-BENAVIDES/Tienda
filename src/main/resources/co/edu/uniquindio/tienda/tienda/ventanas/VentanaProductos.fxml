@@ -9,93 +9,99 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.tienda.tienda.viewController.VentanaProductosController">
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.tienda.tienda.viewController.VentanaProductosController">
    <children>
-      <ScrollPane layoutY="108.0" prefHeight="392.0" prefWidth="460.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="461.0">
-               <children>
-                  <TableView fx:id="tbProductos" prefHeight="392.0" prefWidth="460.0">
-                    <columns>
-                      <TableColumn fx:id="tcNombre" prefWidth="75.0" text="Nombre" />
-                      <TableColumn fx:id="tcCodigo" prefWidth="75.0" text="Código" />
-                        <TableColumn fx:id="tcPrecio" prefWidth="75.0" text="Precio" />
-                        <TableColumn fx:id="tcInventario" prefWidth="75.0" text="Inventario" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-       <ImageView fx:id="btnEditar" fitHeight="75.0" fitWidth="75.0" layoutX="492.0" layoutY="145.0" onMouseClicked="#onEditarProducto">
-           <image>
-               <Image url="@../recursos/Editar.png" />
-           </image>
-       </ImageView>
-       <ImageView fx:id="btnEliminar" fitHeight="75.0" fitWidth="75.0" layoutX="587.0" layoutY="145.0" onMouseClicked="#onEliminarProducto">
-           <image>
-               <Image url="@../recursos/Borrar.png" />
-           </image>
-       </ImageView>
-       <ImageView fx:id="btnCrear" fitHeight="83.0" fitWidth="83.0" layoutX="680.0" layoutY="141.0" onMouseClicked="#onCrearProducto">
-           <image>
-               <Image url="@../recursos/Crear.png" />
-           </image>
-       </ImageView>
-      <Text layoutX="572.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto">
-         <font>
-            <Font name="Bookman Old Style" size="24.0" />
-         </font>
-      </Text>
-      <ImageView fx:id="btnBuscar" fitHeight="75.0" fitWidth="75.0" layoutX="74.0" layoutY="20.0" onMouseClicked="#onBuscarProducto">
-         <image>
-            <Image url="@../recursos/Lupa.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txtBuscar" layoutX="177.0" layoutY="33.0" prefHeight="50.0" prefWidth="550.0" promptText="Nombre del producto">
-         <font>
-            <Font name="Bookman Old Style" size="24.0" />
-         </font>
-      </TextField>
-      <GridPane layoutX="492.0" layoutY="229.0" prefHeight="218.0" prefWidth="272.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <AnchorPane prefHeight="500.0" prefWidth="800.0">
          <children>
-            <TextField fx:id="txtNombre" prefHeight="45.0" prefWidth="271.0" promptText="Nombre">
+            <ScrollPane layoutY="108.0" prefHeight="392.0" prefWidth="460.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="461.0">
+                     <children>
+                        <TableView fx:id="tbProductos" prefHeight="392.0" prefWidth="460.0">
+                           <columns>
+                              <TableColumn fx:id="tcNombre" prefWidth="75.0" text="Nombre" />
+                              <TableColumn fx:id="tcCodigo" prefWidth="75.0" text="Código" />
+                              <TableColumn fx:id="tcPrecio" prefWidth="75.0" text="Precio" />
+                              <TableColumn fx:id="tcInventario" prefWidth="75.0" text="Inventario" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ImageView fx:id="btnEditar" fitHeight="75.0" fitWidth="75.0" layoutX="492.0" layoutY="145.0" onMouseClicked="#onEditarProducto">
+               <image>
+                  <Image url="@../recursos/Editar.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnEliminar" fitHeight="75.0" fitWidth="75.0" layoutX="587.0" layoutY="145.0" onMouseClicked="#onEliminarProducto">
+               <image>
+                  <Image url="@../recursos/Borrar.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnCrear" fitHeight="83.0" fitWidth="83.0" layoutX="680.0" layoutY="141.0" onMouseClicked="#onCrearProducto">
+               <image>
+                  <Image url="@../recursos/Crear.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="572.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Producto">
+               <font>
+                  <Font name="Bookman Old Style" size="24.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="btnBuscar" fitHeight="75.0" fitWidth="75.0" layoutX="74.0" layoutY="20.0" onMouseClicked="#onBuscarProducto">
+               <image>
+                  <Image url="@../recursos/Lupa.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtBuscar" layoutX="177.0" layoutY="33.0" prefHeight="50.0" prefWidth="550.0" promptText="Nombre del producto">
                <font>
                   <Font name="Bookman Old Style" size="24.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtCodigo" prefHeight="45.0" prefWidth="271.0" promptText="Código" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Bookman Old Style" size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtPrecio" prefHeight="45.0" prefWidth="271.0" promptText="Precio" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Bookman Old Style" size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtCantidad" prefHeight="45.0" prefWidth="271.0" promptText="Cantidad" GridPane.rowIndex="3">
-               <font>
-                  <Font name="Bookman Old Style" size="24.0" />
-               </font>
-            </TextField>
+            <GridPane layoutX="492.0" layoutY="229.0" prefHeight="218.0" prefWidth="272.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TextField fx:id="txtNombre" prefHeight="45.0" prefWidth="271.0" promptText="Nombre">
+                     <font>
+                        <Font name="Bookman Old Style" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtCodigo" prefHeight="45.0" prefWidth="271.0" promptText="Código" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Bookman Old Style" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtPrecio" prefHeight="45.0" prefWidth="271.0" promptText="Precio" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Bookman Old Style" size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtCantidad" prefHeight="45.0" prefWidth="271.0" promptText="Cantidad" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Bookman Old Style" size="24.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </GridPane>
          </children>
-      </GridPane>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</Pane>

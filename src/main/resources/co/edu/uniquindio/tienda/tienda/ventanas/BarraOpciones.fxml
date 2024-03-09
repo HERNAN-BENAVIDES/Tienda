@@ -1,20 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventanas.BarraOpciones">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.tienda.tienda.viewController.BarraOpcionesController">
    <children>
-      <VBox layoutY="76.0" prefHeight="348.0" prefWidth="200.0">
+      <Pane layoutY="9.0" prefHeight="98.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="206.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="206.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="206.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="206.0" text="Button" />
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="206.0" text="Button" />
+            <Button fx:id="btnCarrito" alignment="CENTER" layoutY="-4.0" mnemonicParsing="false" onAction="#abrirVentanaCarrito" prefHeight="98.0" prefWidth="200.0" text="           Carrito" textAlignment="RIGHT">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="25.0" layoutY="15.0">
+               <image>
+                  <Image url="@../recursos/Carrito.png" />
+               </image>
+            </ImageView>
          </children>
-      </VBox>
+      </Pane>
+      <Pane layoutY="103.0" prefHeight="98.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnVentas" alignment="CENTER" mnemonicParsing="false" onAction="#abrirVentanaVentas" prefHeight="98.0" prefWidth="200.0" text="           Ventas" textAlignment="RIGHT">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="25.0" layoutY="19.0">
+               <image>
+                  <Image url="@../recursos/Ventas.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="201.0" prefHeight="98.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnProductos" alignment="CENTER" mnemonicParsing="false" onAction="#abrirVentanaProductos" prefHeight="98.0" prefWidth="200.0" text="               Productos" textAlignment="RIGHT">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="24.0" layoutY="19.0">
+               <image>
+                  <Image url="@../recursos/Producto.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="299.0" prefHeight="98.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnClientes" alignment="CENTER" mnemonicParsing="false" onAction="#abrirVentanaClientes" prefHeight="98.0" prefWidth="200.0" text="           Clientes" textAlignment="RIGHT">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="25.0" layoutY="19.0">
+               <image>
+                  <Image url="@../recursos/Cliente.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="397.0" prefHeight="98.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnHistorial" alignment="CENTER" mnemonicParsing="false" onAction="#abrirVentanaHistorial" prefHeight="98.0" prefWidth="200.0" text="           Historial" textAlignment="RIGHT">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="26.0" layoutY="19.0">
+               <image>
+                  <Image url="@../recursos/Historial.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
-</AnchorPane>
+</Pane>
