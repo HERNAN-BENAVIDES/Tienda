@@ -12,10 +12,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuppressWarnings("ALL")
-public class Venta {
+public class Venta implements Comparable<Venta>{
     private String codigo;
     private LocalDate fecha;
     private Double total;
     private Cliente cliente;
     private List<DetalleVenta> detallesVenta;
+
+    @Override
+    public int compareTo(Venta o) {
+        return this.fecha.compareTo(o.getFecha());
+    }
 }

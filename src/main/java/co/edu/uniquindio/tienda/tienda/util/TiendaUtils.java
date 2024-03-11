@@ -27,11 +27,7 @@ public class TiendaUtils {
         Cliente c1 = new Cliente("Juan", "1212", "Mi casa");
         Cliente c2 = new Cliente("Jose", "1313", "Su casa");
 
-        try {
-            c1.agregarProductoAlCarrito("1111");
-        } catch (ProductoException e) {
-            throw new RuntimeException(e);
-        }
+
 
         try {
             tienda.agregarCliente(c1);
@@ -43,9 +39,13 @@ public class TiendaUtils {
         DetalleVenta d1 = new DetalleVenta(5,p1,p1.getPrecio()*5);
         DetalleVenta d2 = new DetalleVenta(5,p2,p2.getPrecio()*5);
 
-        Venta v1 = new Venta("1211", LocalDate.now(), calcularTotal(new DetalleVenta[]{d1, d2}), c1, List.of(new DetalleVenta[]{d1, d2}));
+        Venta v1 = new Venta("1111", LocalDate.now(), calcularTotal(new DetalleVenta[]{d1, d2}), c1, List.of(new DetalleVenta[]{d1, d2}));
+        Venta v2 = new Venta("1212", LocalDate.of(2024, 2, 29), calcularTotal(new DetalleVenta[]{d1, d2}), c2, List.of(new DetalleVenta[]{d1, d2}));
+        Venta v3 = new Venta("1313", LocalDate.of(2024, 3, 8), calcularTotal(new DetalleVenta[]{d1, d2}), c1, List.of(new DetalleVenta[]{d1, d2}));
 
         tienda.realizarVenta(v1);
+        tienda.realizarVenta(v2);
+        tienda.realizarVenta(v3);
 
         return tienda;
 

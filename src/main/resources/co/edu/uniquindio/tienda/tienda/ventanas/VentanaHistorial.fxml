@@ -34,7 +34,7 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <ImageView fx:id="btnBuscar" fitHeight="75.0" fitWidth="75.0" layoutX="68.0" layoutY="20.0" onMouseClicked="#onBuscarProducto">
+            <ImageView fx:id="btnBuscar" fitHeight="75.0" fitWidth="75.0" layoutX="68.0" layoutY="20.0" onMouseClicked="#onBuscarVenta">
                <image>
                   <Image url="@../recursos/Lupa.png" />
                </image>

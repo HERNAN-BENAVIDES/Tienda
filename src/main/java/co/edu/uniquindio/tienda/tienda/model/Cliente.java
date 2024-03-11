@@ -18,7 +18,6 @@ public class Cliente {
     private String numIdentificacion;
     private String direccion;
 
-    private  CarritoCompras carritoCompras;
     private List<Venta> listaCompras;
 
     public Cliente(String nombre, String numIdentificacion, String direccion) {
@@ -26,23 +25,6 @@ public class Cliente {
         this.numIdentificacion = numIdentificacion;
         this.direccion = direccion;
         this.listaCompras = new ArrayList<>();
-        this.carritoCompras = new CarritoCompras();
-    }
-
-
-
-    public Boolean agregarProductoAlCarrito(String codigoProducto) throws ProductoException {
-        return carritoCompras.agregarProducto(codigoProducto);
-    }
-
-
-    public Boolean eliminarProductoDelCarrito(String codigoProducto) throws ProductoException {
-        return carritoCompras.eliminarProducto(codigoProducto);
-    }
-
-
-    public Boolean vaciarCarrito(String codigoCarrito) throws VaciarCarritoComprasException {
-        return carritoCompras.vaciarCarrito();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.tienda.tienda.viewController;
 import co.edu.uniquindio.tienda.tienda.TiendaApplication;
+import co.edu.uniquindio.tienda.tienda.controller.ModelFactoryController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +25,11 @@ public class VentanaInicioController implements Initializable {
 
     private TiendaApplication aplicacion;
     private Stage ventana;
+    ModelFactoryController modelFactoryController;
 
+    public VentanaInicioController() {
+        modelFactoryController = ModelFactoryController.getInstance();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

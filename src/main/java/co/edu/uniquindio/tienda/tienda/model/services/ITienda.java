@@ -27,7 +27,6 @@ public interface ITienda {
     // Métodos para gestionar ventas
     public Boolean realizarVenta(Venta venta);
     public List<Venta> obtenerVentasCliente(String idCliente);
-    public List<Venta> obtenerVentasPorFecha(Date fechaInicio, Date fechaFin);
 
     // Métodos para gestionar historial de ventas
     public boolean agregarVentaAlHistorico(Venta venta);

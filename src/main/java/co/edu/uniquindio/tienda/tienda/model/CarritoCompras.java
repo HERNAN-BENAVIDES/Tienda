@@ -15,31 +15,13 @@ import java.util.Random;
 //"Besos"
 public class CarritoCompras {
 
-    public String codigo;
     public HashSet<String> productosCarrito;
 
     public CarritoCompras() {
-        this.codigo = generarCodigo();
         this.productosCarrito = new HashSet<>();
     }
 
-    private String generarCodigo() {
-        String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Random random = new Random();
-        StringBuilder codigo = new StringBuilder();
 
-        // Generar 4 letras
-        for (int i = 0; i < 4; i++) {
-            codigo.append(letras.charAt(random.nextInt(letras.length())));
-        }
-
-        // Generar 2 números
-        for (int i = 0; i < 2; i++) {
-            codigo.append(random.nextInt(10));
-        }
-
-        return codigo.toString();
-    }
 
     // Método para agregar un producto al carrito
     public Boolean agregarProducto(String codigoProducto) throws ProductoException {

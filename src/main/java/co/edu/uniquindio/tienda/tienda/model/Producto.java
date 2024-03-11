@@ -23,4 +23,6 @@ public class Producto implements Comparable<Producto> {
         return Integer.compare(getCantidadInventario(), o.getCantidadInventario());
     }
 
+
+
 }

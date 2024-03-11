@@ -21,6 +21,8 @@ import lombok.Data;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+@SuppressWarnings("All")
 @Data
 public class VentanaProductosController implements Initializable {
 
@@ -79,6 +81,12 @@ public class VentanaProductosController implements Initializable {
     }
 
     @FXML
+    /**
+     * Inicializa la interfaz de usuario.
+     * Este método se llama al iniciar la aplicación y configura el enlace de datos,
+     * actualiza la lista de productos, establece el listener de selección y
+     * inicializa los campos necesarios.
+     */
     void initialize() {
         initDataBinding();
         actualizarLista();
@@ -86,8 +94,11 @@ public class VentanaProductosController implements Initializable {
         inicializarCampos();
     }
 
+    /**
+     * Inicializa los campos de la interfaz de usuario.
+     * Establece un validador para el campo de búsqueda que permite solo números.
+     */
     private void inicializarCampos() {
-        // Validador para el campo de código (solo permite números)
         txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
                 txtBuscar.setText(newValue.replaceAll("[^\\d]", ""));
@@ -95,29 +106,43 @@ public class VentanaProductosController implements Initializable {
         });
     }
 
+    /**
+     * Actualiza la lista de productos en la tabla de la interfaz de usuario.
+     */
     private void actualizarLista() {
         tbProductos.getItems().clear();
-        obtenerListaClientes();
+        obtenerListaProductos();
         actualizarTabla();
     }
 
+    /**
+     * Actualiza la tabla de productos en la interfaz de usuario.
+     */
     private void actualizarTabla() {
         tbProductos.setItems(listProductos);
     }
 
-    private void obtenerListaClientes() {
+    /**
+     * Obtiene la lista de productos desde el controlador y la agrega a la lista observable.
+     */
+    private void obtenerListaProductos() {
         listProductos.addAll(modelFactoryController.obtenerListaProductos());
     }
 
-
+    /**
+     * Configura el enlace de datos para las columnas de la tabla de productos.
+     */
     private void initDataBinding() {
-        // Configura el enlace de datos para las columnas de la tabla
         tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
         tcCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigo()));
         tcPrecio.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getPrecio())));
         tcInventario.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getCantidadInventario())));
     }
 
+    /**
+     * Establece un listener para la selección de productos en la tabla.
+     * Cuando se selecciona un producto, se muestra su información en los campos correspondientes.
+     */
     private void listenerSelection() {
         tbProductos.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             productoSeleccionado = newSelection;
@@ -125,6 +150,11 @@ public class VentanaProductosController implements Initializable {
         });
     }
 
+    /**
+     * Muestra la información del producto seleccionado en los campos de la interfaz de usuario.
+     *
+     * @param productoSeleccionado El producto seleccionado.
+     */
     private void mostrarInformacionProducto(Producto productoSeleccionado) {
         if (productoSeleccionado != null){
             txtNombre.setText(productoSeleccionado.getNombre());
@@ -134,12 +164,30 @@ public class VentanaProductosController implements Initializable {
         }
     }
 
+    /**
+     * Maneja el evento de edición de un producto.
+     * Se llama cuando se hace clic en el botón de editar producto.
+     * Llama al método para editar el producto seleccionado.
+     *
+     * @param mouseEvent El evento de ratón asociado al clic.
+     */
     @FXML
     public void onEditarProducto(MouseEvent mouseEvent) {
         editarProducto();
     }
 
+    /**
+     * Edita el producto seleccionado.
+     * Muestra alertas de error si no se selecciona ningún producto,
+     * si los campos de texto están vacíos o si el producto no sufre cambios.
+     * Llama al controlador para editar el producto.
+     */
     private void editarProducto() {
+        if (productoSeleccionado == null){
+            Alertas.mostrarAlertaError("Debe seleccionar un producto");
+            return;
+        }
+
         if (validarCampo()) {
             Alertas.mostrarAlertaError("Los campos de texto deben estar llenos");
             return;
@@ -161,11 +209,23 @@ public class VentanaProductosController implements Initializable {
         }
     }
 
+    /**
+     * Maneja el evento de eliminación de un producto.
+     * Se llama cuando se hace clic en el botón de eliminar producto.
+     * Llama al método para eliminar el producto seleccionado.
+     *
+     * @param mouseEvent El evento de ratón asociado al clic.
+     */
     @FXML
     public void onEliminarProducto(MouseEvent mouseEvent) {
         eliminarProducto();
     }
 
+    /**
+     * Elimina el producto seleccionado.
+     * Muestra una alerta de error si no se selecciona ningún producto.
+     * Llama al controlador para eliminar el producto.
+     */
     private void eliminarProducto() {
         if (productoSeleccionado == null) {
             Alertas.mostrarAlertaError("Debe seleccionar un producto");
@@ -182,11 +242,24 @@ public class VentanaProductosController implements Initializable {
         }
     }
 
+    /**
+     * Maneja el evento de búsqueda de un producto.
+     * Se llama cuando se hace clic en el botón de buscar producto.
+     * Llama al método para buscar un producto por su código.
+     *
+     * @param mouseEvent El evento de ratón asociado al clic.
+     */
     @FXML
     public void onBuscarProducto(MouseEvent mouseEvent) {
         buscarProducto();
     }
 
+    /**
+     * Busca un producto por su código.
+     * Si el campo de búsqueda está vacío, actualiza la lista de productos.
+     * Si se encuentra el producto, actualiza la lista de productos con el producto encontrado.
+     * Muestra una alerta de error si el producto no se encuentra.
+     */
     private void buscarProducto() {
         String codigo = txtBuscar.getText();
 
@@ -208,11 +281,24 @@ public class VentanaProductosController implements Initializable {
         }
     }
 
+
+    /**
+     * Maneja el evento de creación de un nuevo producto.
+     * Se llama cuando se hace clic en el botón de crear producto.
+     * Llama al método para crear un nuevo producto.
+     *
+     * @param mouseEvent El evento de ratón asociado al clic.
+     */
     @FXML
     public void onCrearProducto(MouseEvent mouseEvent) {
         crearProducto();
     }
 
+    /**
+     * Crea un nuevo producto y lo registra en la tienda.
+     * Muestra una alerta de error si los campos de texto están vacíos.
+     * Llama al controlador para agregar el nuevo producto a la tienda.
+     */
     private void crearProducto() {
         if (validarCampo()) {
             Alertas.mostrarAlertaError("Los campos de texto deben estar llenos");
@@ -230,10 +316,20 @@ public class VentanaProductosController implements Initializable {
         }
     }
 
+    /**
+     * Crea un nuevo objeto Producto utilizando los datos ingresados en los campos de texto.
+     *
+     * @return Un nuevo objeto Producto creado a partir de los datos de los campos de texto.
+     */
     private Producto crearProductos() {
         return new Producto(txtNombre.getText(), txtCodigo.getText(), Double.parseDouble(txtPrecio.getText()), Integer.parseInt(txtCantidad.getText()));
     }
 
+    /**
+     * Valida si los campos de texto necesarios para crear un producto están llenos.
+     *
+     * @return true si algún campo está vacío, false si todos los campos están llenos.
+     */
     private boolean validarCampo() {
         String nombre = txtNombre.getText();
         String codigo = txtCodigo.getText();
@@ -242,9 +338,14 @@ public class VentanaProductosController implements Initializable {
         return nombre.isEmpty() || codigo.isEmpty() || precio.isEmpty();
     }
 
+    /**
+     * Inicializa la interfaz de usuario al cargar la vista.
+     * Este método se llama automáticamente cuando se carga la vista.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        initialize();
     }
+
 }
 
